@@ -7,5 +7,17 @@
   <app-test></app-test>
   <app-sampel1></app-sampel1>
   <app-sampel2></app-sampel2>
+
+  <!-- 
+    1. 현재 최상단 컴포넌트는 app.component이다.
+    2. 자식 컴포넌트는 app-sampel1,2,3이다.
+    3. 자식 컴포넌트인 app-sampel3은 자식의 클래스에서 @Input() test; 로 값을 주입 받을 준비를 한다.
+    4. 부모 컴포넌트에서 test라는 속성으로 값을 주입할 수 있다.
+    ([test]의 경우 실제 입력 받는 값에 대해 문자열 자체로 받는 것이 아닌 부모 html이 자신의 컴포넌트로부터 받는 title값을 받아오기 위함이다)
+    5. 부모에서 전달하는 Input에 대한 값이 배열인 경우 *ngFor을 사용하여 반복적으로 입력받을 수 있다.
+   -->
+  <app-sampel3 test="hello"></app-sampel3>
+  <app-sampel3 [test]="title"></app-sampel3>
+  <app-sampel3 *ngFor="let name of names" test="name"></app-sampel3>
 </div>
 
